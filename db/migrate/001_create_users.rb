@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, null: false, index: { unique: true }
       t.string :token, null: false, index: { unique: true }
       t.string :password_digest, null: false
+      # setting doctor as admin, must matchup in seeds.rb
+      t.boolean :doctor, null: false
 
       t.timestamps null: false
     end
