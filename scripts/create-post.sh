@@ -1,17 +1,16 @@
 #!/bin/bash
 
 # API="${API_ORIGIN:-http://localhost:4741}"
-# URL_PATH="/change-password"
-curl "http://localhost:4741/change-password" \
+# URL_PATH="/posts"
+curl "http://localhost:4741/create-post" \
   --include \
-  --request PATCH \
+  --request POST \
   --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{
-    "passwords": {
-      "old": "'"${OLDPW}"'",
-      "new": "'"${NEWPW}"'"
+    "post": {
+      "user_id": "1",
+      "title": "Title",
+      "content": "Content"
     }
   }'
-
-echo
